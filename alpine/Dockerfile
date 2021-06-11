@@ -12,7 +12,7 @@ LABEL maintainer="ritterho@hm.edu" \
     org.label-schema.vcs-url="https://github.com/fritterhoff/ansible-ci" \
     org.label-schema.docker.cmd="docker run --rm -it ~/.ssh/:/root/.ssh/ fritterhoff/ansible-ci:alpine"
 
-RUN apk --no-cache add sudo python3py3-pip openssl ca-certificates sshpass openssh-client rsync git && \
+RUN apk --no-cache add sudo python3 py3-pip openssl ca-certificates sshpass openssh-client rsync git && \
     apk --no-cache add --virtual build-dependencies python3-dev libffi-dev musl-dev gcc cargo openssl-dev libressl-dev build-base && \
     pip3 install --upgrade pip wheel && \
     pip3 install --upgrade cryptography cffi && \
