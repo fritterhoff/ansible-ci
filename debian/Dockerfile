@@ -18,6 +18,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get clean
     
 RUN pip3 install --upgrade pip cffi && \
-    pip install ansible==4.0.0 mitogen && \
+    pip install ansible==4.0.0 && \
     ansible-galaxy collection install community.docker && \
     rm -rf /root/.cache/pip
