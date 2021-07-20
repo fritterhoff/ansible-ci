@@ -18,5 +18,5 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     
 RUN pip3 install --upgrade pip cffi && \
     pip install ansible==4.0.0 && \
-    ansible-galaxy collection install community.docker && \
+    ansible-galaxy collection install community.docker community.general && \
     rm -rf /root/.cache/pip

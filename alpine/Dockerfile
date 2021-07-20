@@ -17,7 +17,7 @@ RUN apk --no-cache add sudo python3 py3-pip openssl ca-certificates sshpass open
     pip3 install --upgrade pip wheel && \
     pip3 install --upgrade cryptography cffi && \
     pip3 install ansible==4.0.0 && \
-    ansible-galaxy collection install community.docker && \
+    ansible-galaxy collection install community.docker community.general && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \
     rm -rf /root/.cache/pip && \
