@@ -20,3 +20,8 @@ RUN pip3 install --upgrade pip cffi && \
     pip install ansible==4.0.0 && \
     ansible-galaxy collection install community.docker community.general && \
     rm -rf /root/.cache/pip
+    
+RUN wget https://releases.hashicorp.com/terraform/1.0.3/terraform_1.0.3_linux_amd64.zip -O /tmp/terraform.zip && \ 
+    unzip /tmp/terraform.zip -d /tmp && \
+    cp /tmp/terraform /usr/local/bin/ && \
+    rm -rf /tmp/terraform.zip

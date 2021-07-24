@@ -22,3 +22,7 @@ RUN apk --no-cache add sudo python3 py3-pip openssl ca-certificates sshpass open
     rm -rf /var/cache/apk/* && \
     rm -rf /root/.cache/pip && \
     rm -rf /root/.cargo
+RUN wget https://releases.hashicorp.com/terraform/1.0.3/terraform_1.0.3_linux_amd64.zip -O /tmp/terraform.zip && \ 
+    unzip /tmp/terraform.zip -d /tmp && \
+    cp /tmp/terraform /usr/local/bin/ && \
+    rm -rf /tmp/terraform.zip
