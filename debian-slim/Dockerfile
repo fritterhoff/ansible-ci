@@ -12,7 +12,7 @@ LABEL maintainer="ritterho@hm.edu" \
     org.label-schema.docker.cmd="docker run --rm -it ~/.ssh/:/root/.ssh/ fritterhoff/ansible-ci:debian-slim"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y python3-pip sshpass git openssh-client && \
+    apt-get install -y python3-pip sshpass git openssh-client curl unzip && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
