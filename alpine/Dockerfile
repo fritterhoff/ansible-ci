@@ -1,5 +1,5 @@
 # pull base image
-FROM alpine:3.13
+FROM alpine:3
 
 # Labels.
 LABEL maintainer="ritterho@hm.edu" \
@@ -13,10 +13,10 @@ LABEL maintainer="ritterho@hm.edu" \
     org.label-schema.docker.cmd="docker run --rm -it ~/.ssh/:/root/.ssh/ fritterhoff/ansible-ci:alpine"
 
 RUN apk --no-cache add sudo python3 py3-pip openssl ca-certificates sshpass openssh-client rsync git && \
-    apk --no-cache add --virtual build-dependencies python3-dev libffi-dev musl-dev gcc cargo openssl-dev libressl-dev build-base && \
+    apk --no-cache add --virtual build-dependencies python3-dev libffi-dev musl-dev gcc cargo openssl-dev build-base && \
     pip3 install --upgrade pip wheel && \
     pip3 install --upgrade cryptography cffi && \
-    pip3 install ansible==4.0.0 && \
+    pip3 install ansible==4.3.0 && \
     ansible-galaxy collection install community.docker community.general && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \
