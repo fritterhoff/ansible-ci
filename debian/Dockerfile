@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 # Labels.
 LABEL maintainer="ritterho@hm.edu" \
@@ -18,6 +18,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get clean
     
 RUN pip3 install --upgrade pip cffi && \
-    pip install ansible==4.3.0 && \
+    pip install ansible==4.4.0 && \
     ansible-galaxy collection install community.docker community.general && \
     rm -rf /root/.cache/pip
