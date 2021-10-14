@@ -15,8 +15,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -y python3-pip sshpass git openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
-    
+
+ADD requirements.txt /tmp
 RUN pip3 install --upgrade pip cffi && \
-    pip install ansible==4.4.0 && \
+    pip install -r /tmp/requirements.txt && \
     ansible-galaxy collection install community.docker community.general && \
     rm -rf /root/.cache/pip
