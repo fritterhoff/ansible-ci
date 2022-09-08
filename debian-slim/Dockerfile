@@ -19,5 +19,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 ADD requirements.txt /tmp
 RUN pip3 install --upgrade pip cffi && \
     pip install -r /tmp/requirements.txt && \
-    ansible-galaxy collection install community.docker community.general && \
+    ansible-galaxy collection install community.docker && \
+    ansible-galaxy collection install community.general:5.4.0 && \
     rm -rf /root/.cache/pip
